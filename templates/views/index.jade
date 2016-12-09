@@ -1,6 +1,7 @@
 extends ../layouts/default
 
 block content
+
 	// Import google icon font
 	head
 		link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
@@ -10,6 +11,7 @@ block content
 			media='screen,projection')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
+	// Main content
 	.container: .jumbotron
 		h2 Research Edge
 		hr
@@ -26,13 +28,13 @@ block content
 						placeholder="Search",
 						spellcheck=true)
 
-		ul.collapsible(data-collapsible="accordion")
-			li
-				.collapsible-header
-					i.material-icons toc
-					| Advanced Search
-				.collapsible-body
-					| Search Options
+				ul.collapsible(data-collapsible="accordion")
+					li
+						.collapsible-header
+							i.material-icons toc
+							| Advanced Search
+						.collapsible-body
+							| Search Options
 
 	// Import jquery and materialize
 	body
