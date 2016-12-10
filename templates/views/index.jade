@@ -12,14 +12,16 @@ block content
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
 	// Main content
-	.container: .jumbotron
+	.container
 		h2 Research Edge
 		hr
 		form(id="search-form", method="post", autocomplete="on")
-			.input-field
-				button.btn.waves-effect.waves-light(type='submit', name='action')
-					i.material-icons send
-				span
+
+			// Search bar
+			button.btn.waves-effect.waves-light(type='submit', name='action')
+				i.material-icons send
+			span
+				.input-field
 					i.material-icons.prefix search
 					input(name="search-query",
 						type="text",
@@ -28,13 +30,21 @@ block content
 						placeholder="Search",
 						spellcheck=true)
 
-				ul.collapsible(data-collapsible="accordion")
-					li
-						.collapsible-header
-							i.material-icons toc
-							| Advanced Search
-						.collapsible-body
-							| Search Options
+			// Advanced search
+			ul.collapsible(data-collapsible="accordion")
+				li
+					.collapsible-header
+						i.material-icons list
+						| Advanced Search
+					.collapsible-body
+						.row
+							.input-field.col.s10.offset-s1
+								input#Authors.validate(type="text")
+								label(for="Authors") Authors
+							.input-field.col.s10.offset-s1
+								input#Journals.validate(type="text")
+								label(for="Journal") Journals
+								
 
 	// Import jquery and materialize
 	body
