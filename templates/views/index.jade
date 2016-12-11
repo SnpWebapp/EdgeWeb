@@ -10,43 +10,49 @@ block content
 			href='css/materialize.min.css',
 			media='screen,projection')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(type='text/css', href='css/nouislider.css', rel='stylesheet')
 
 	// Main content
 	.container
 		h2 Research Edge
 		hr
-		form(id="search-form", method="post", autocomplete="on")
+		form#search-form(method='post', autocomplete='on')
 
 			// Search bar
 			button.btn.waves-effect.waves-light(type='submit', name='action')
 				i.material-icons send
-			span
-				.input-field
+			.input-field
+				span
 					i.material-icons.prefix search
-					input(name="search-query",
-						type="text",
+					input(type='text',
 						autofocus=true,
 						required=true,
-						placeholder="Search",
+						placeholder='Search',
 						spellcheck=true)
 
 			// Advanced search
-			ul.collapsible(data-collapsible="accordion")
+			ul.collapsible(data-collapsible='accordion')
 				li
 					.collapsible-header
 						i.material-icons list
 						| Advanced Search
 					.collapsible-body
-						.row
-							.input-field.col.s10.offset-s1
-								input#Authors.validate(type="text")
-								label(for="Authors") Authors
-							.input-field.col.s10.offset-s1
-								input#Journals.validate(type="text")
-								label(for="Journal") Journals
-								
+						.container
+							.row
+								.input-field
+									input#Authors.validate(type='text')
+									label(for='Authors') Authors
+								.input-field
+									input#Journals.validate(type='text')
+									label(for='Journal') Journals
+							.row
+								label.col.s3.m2.1#year-slider Date:
+								#year_slider.col.s9.m10.11
 
-	// Import jquery and materialize
+	// Import jquery, materialize, nouislider
 	body
-		script(type="text/javascript", src="js/jquery/jquery-2.1.4.min.js")
-		script(type="text/javascript", src="js/materialize.min.js")
+		script(type='text/javascript', src='js/jquery/jquery-2.1.4.min.js')
+		script(type='text/javascript', src='js/materialize.min.js')
+		script(type='text/javascript', src='js/nouislider.min.js')
+		script(type='text/javascript', src='js/year_slider.js')
+
