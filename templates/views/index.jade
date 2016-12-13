@@ -24,7 +24,8 @@ block content
 			.input-field
 				span
 					i.material-icons.prefix search
-					input(type='text',
+					input(name='search_query',
+						type='text',
 						autofocus=true,
 						required=true,
 						placeholder='Search',
@@ -40,14 +41,18 @@ block content
 						.container
 							.row
 								.input-field
-									input#Authors.validate(type='text')
+									input#Authors.validate(name='authors', type='text')
 									label(for='Authors') Authors
 								.input-field
-									input#Journals.validate(type='text')
+									input#Journals.validate(name='journals', type='text')
 									label(for='Journal') Journals
 							.row
 								label.col.s3.m2.1#year-slider Date:
 								#year_slider.col.s9.m10.11
+
+		// Search results
+		if searchSubmitted
+			h3 Search submitted
 
 	// Import jquery, materialize, nouislider
 	body
