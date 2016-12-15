@@ -17,7 +17,7 @@ exports = module.exports = function (req, res) {
 		locals.formData = req.body || {};
 		locals.searchSubmitted = true;
 
-		edge.edgesearch(locals.formData);
+		locals.searchResults = edge.edgesearch(locals.formData);
 		
 		next();
 	});
