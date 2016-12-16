@@ -5,6 +5,9 @@
 //				describe the graph network of the search results.
 
 exports.edgesearch = function (data) {
+
+	console.log(data);
+
 	var net = {"nodes":[], "edges":[]};
 
 	//----------------------

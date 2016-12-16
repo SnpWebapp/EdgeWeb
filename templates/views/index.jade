@@ -53,9 +53,10 @@ block content
 									input#Journals.validate(name='journals', type='text')
 									label(for='Journal') Journals
 							.row
-								label.col.s3.m2.1#year-slider Date:
-								#year_slider.col.s9.m10.11
-
+								label.col.s3#slider_label Date
+								#year_slider.col.s9
+								input#yearstart(name='yearstart', type='number')
+								input#yearend(name='yearend', type='number')
 
 	body
 		// Import jquery
