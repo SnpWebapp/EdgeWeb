@@ -20,19 +20,17 @@ noUiSlider.create(year_slider, {
 });
 
 // Initialise default values
-updateYears();
+if (yearstart.getAttribute('value') == null) {
+	yearstart.setAttribute('value', year_slider.noUiSlider.get()[0]);
+	yearend.setAttribute('value', year_slider.noUiSlider.get()[1]);
+} else {
+	year_slider.noUiSlider.set([yearstart.getAttribute('value'), yearend.getAttribute('value')]);
+}
 
 // Update the label when the range values change
-year_slider.noUiSlider.on('update', updateYears);
-
-// Function that updates the label and input elements when the range changes
-function updateYears(values, handle){
-
-	var start = year_slider.noUiSlider.get()[0];
-	var end   = year_slider.noUiSlider.get()[1];
-
-	yearstart.setAttribute('value', start);
-	yearend.setAttribute('value', end);
-
-	slider_label.innerHTML = 'Date: ' + start + '-' + end;
-}
+year_slider.noUiSlider.on('update', function (values, handle) {
+	var year_range = year_slider.noUiSlider.get();
+	yearstart.setAttribute('value', year_range[0]);
+	yearend.setAttribute('value', year_range[1]);
+	slider_label.innerHTML = 'Date: ' + year_range[0] + '-' + year_range[1];
+})

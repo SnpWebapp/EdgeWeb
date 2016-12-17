@@ -1,8 +1,17 @@
-// FUNCTION:	edgesearch
-// DESCRIPTION: Create graph for search results.
-// INPUTS:		data - Json object of search request.
-// RETURNS:		Json object with a "nodes" and "edges" field that
-//				describe the graph network of the search results.
+/**********************************************************F********
+ * FILE NAME:	edge.js
+ * DESCRIPTION:	Defines functions that perform the back-end server
+ *				computations.
+ *******************************************************************/
+
+/*******************************************************************
+ * FUNCTION:	edgesearch
+ * DESCRIPTION: Callback function on POST request of index page.
+ * 				Creates graph for search results.
+ * INPUTS:		data - Json object of search request.
+ * RETURNS:		Json object with a "nodes" and "edges" field that
+ *				describe the graph network of the search results.
+ *******************************************************************/
 
 exports.edgesearch = function (data) {
 

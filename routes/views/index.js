@@ -10,15 +10,12 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 	locals.searchSubmitted = false;
+	locals.formData = req.body || {};
 
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', function (next) {
-
-		locals.formData = req.body || {};
 		locals.searchSubmitted = true;
-
 		locals.searchResults = edge.edgesearch(locals.formData);
-		
 		next();
 	});
 
