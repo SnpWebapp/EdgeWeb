@@ -24,23 +24,24 @@ block navigation
 block content
 
 	//- Slider
-	.slider
-		ul.slides
-			li
-				img(src='http://lorempixel.com/580/250/nature/1')
-				.caption.center-align
-					h3 Research Edge
-					h5 Search journals and articles
-			li
-				img(src='images/spark-core-import-graph.png')
-				.caption.left-align
-					h3 Research Edge
-					h5 Visualise citations networks
-			li
-				img(src='http://lorempixel.com/580/250/nature/3')
-				.caption.right-align
-					h3 Research Edge
-					h5 Review papers
+	if (!searchSubmitted)
+		.slider
+			ul.slides
+				li
+					img(src='http://lorempixel.com/580/250/nature/1')
+					.caption.center-align
+						h3 Research Edge
+						h5 Search journals and articles
+				li
+					img(src='images/spark-core-import-graph.png')
+					.caption.left-align
+						h3 Research Edge
+						h5 Visualise citations networks
+				li
+					img(src='http://lorempixel.com/580/250/nature/3')
+					.caption.right-align
+						h3 Research Edge
+						h5 Review papers
 
 	// Main content
 	.container
@@ -94,6 +95,7 @@ block content
 
 block js
 
+		script(type='text/javascript', src='js/lib/materialize.min.js', async)
 		script(type='text/javascript').
 			var searchResults =!{JSON.stringify(searchResults)}
 			$(document).ready(function() {
@@ -104,7 +106,6 @@ block js
 
 
 		// Import materialize, nouislider, etc.
-		script(type='text/javascript', src='js/lib/materialize.min.js', async)
 		script(type='text/javascript', src='js/lib/nouislider.min.js')
 
 		script(type='text/javascript', src='js/year_slider.js', async)
