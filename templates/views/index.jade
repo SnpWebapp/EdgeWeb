@@ -3,22 +3,8 @@ extends ../layouts/default
 //- Import css scripts
 block css
 
-	link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-	link(type='text/css', rel='stylesheet', href='css/materialize.min.css', media='screen,projection')
 	link(type='text/css', href='css/nouislider.css', rel='stylesheet')
 	link(type='text/css', href='css/vis.min.css', rel='stylesheet')
-
-
-block navigation
-	nav
-		.nav-wrapper
-			a.brand-logo.left(href='/')
-				i.material-icons.prefix dashboard
-			ul#nav-mobile.right
-				if user
-					li: a(href='/keystone/signout') Sign Out
-				else
-					li: a(href='/keystone/signin') Sign In
 
 //- Main content
 block content
@@ -28,29 +14,29 @@ block content
 		.slider
 			ul.slides
 				li
-					img(src='http://lorempixel.com/580/250/nature/1')
+					img(src='images/af63fe1e8e58fd5e6a0c88fa1fd0c466.png')
 					.caption.center-align
-						h3 Research Edge
-						h5 Search journals and articles
+						h3(style='color: black;') Research Edge
+						h5(style='color: black;') Discover journals and articles
 				li
 					img(src='images/spark-core-import-graph.png')
-					.caption.left-align
-						h3 Research Edge
-						h5 Visualise citations networks
-				li
-					img(src='http://lorempixel.com/580/250/nature/3')
 					.caption.right-align
-						h3 Research Edge
-						h5 Review papers
+						h3 Visualise
+						h5 Citation networks
+				li
+					img(src='images/writing____by_juddt6-d5bcay0.jpg')
+					.caption.left-align
+						h3 Review
+						h5 Papers and peers
 
-	// Main content
 	.container
-		form#search-form(method='post', autocomplete='on')
+		form#search-form(method='get', autocomplete='on')
 
 			//- Search bar
 			.row
-				.input-field.col.s8.m10
-					i.material-icons.prefix search
+				.input-field.col.s2.m1
+					button.btn(type='submit', style='width: 30px'): i.material-icons search
+				.input-field.col.s10.m11
 					input(name='search_query',
 						type='text',
 						autofocus=true,
@@ -58,55 +44,47 @@ block content
 						placeholder='Search',
 						spellcheck=true,
 						value=formData['search_query'])
-				.input-field.col.s4.m2
-					button.btn.waves-effect.waves-light(type='submit', name='action')
-						i.material-icons send
 
 			//- Advanced search
-			.row
-				ul.collapsible(data-collapsible='accordion')
-					li
-						.collapsible-header
-							i.material-icons list
-							| Advanced Search
-						.collapsible-body
-							.container
-								.row
-									.input-field
-										input.validate(name='authors',
-											type='text',
-											value=formData['authors'])
-										label(for='Authors') Authors
-									.input-field
-										input.validate(name='journals',
-											type='text',
-											value=formData['journals'])
-										label(for='Journal') Journals
-								.row
-									label.col.s3#date_label Date
-									#year_slider.col.s9
-									input#yearstart(name='yearstart', type='number', value=formData['yearstart'])
-									input#yearend(name='yearend', type='number', value=formData['yearend'])
+			ul.collapsible(data-collapsible='accordion')
+				li
+					.collapsible-header
+						i.material-icons list
+						| Advanced Search
+					.collapsible-body
+						.container
+							.row
+								.input-field
+									input.validate(name='authors', type='text', value=formData['authors'])
+									label(for='Authors') Authors
+								.input-field
+									input.validate(name='journals', type='text', value=formData['journals'])
+									label(for='Journal') Journals
+							.row
+								label.col.s3#date_label Date
+								#year_slider.col.s9
+								input#yearstart(name='yearstart', type='number', value=formData['yearstart'])
+								input#yearend(name='yearend', type='number', value=formData['yearend'])
 
 	// Search results
 	if searchSubmitted
 		.container
 			#search_network
 
+// visjs must be loaded before materialize-css to avoid conflicts
 block js
+	script(type='text/javascript').
+		var searchResults =!{JSON.stringify(searchResults)}
+		$(document).ready(function() {
+			$('.slider').slider({full_width: true, interval: 4000});
+		});
 
-		script(type='text/javascript', src='js/lib/materialize.min.js', async)
-		script(type='text/javascript').
-			var searchResults =!{JSON.stringify(searchResults)}
-			$(document).ready(function() {
-				$('.slider').slider({full_width: true, interval: 4000});
-			});
-		script(type='text/javascript', src='js/lib/vis.min.js')
-		script(type='text/javascript', src='js/search_network.js', async)
+	// Import visjs
+	script(type='text/javascript', src='js/lib/vis.min.js')
+	script(type='text/javascript', src='js/search_network.js')
 
+	// Import nouislider
+	script(type='text/javascript', src='js/lib/nouislider.min.js')
+	script(type='text/javascript', src='js/year_slider.js')
 
-		// Import materialize, nouislider, etc.
-		script(type='text/javascript', src='js/lib/nouislider.min.js')
-
-		script(type='text/javascript', src='js/year_slider.js', async)
 
