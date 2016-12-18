@@ -10,6 +10,7 @@ block css
 block content
 
 	//- Slider
+	//- Slider is only shown when no search request has been submitted
 	if (!searchSubmitted)
 		.slider
 			ul.slides
@@ -69,8 +70,12 @@ block content
 
 	// Search results
 	if searchSubmitted
-		.container
+		.container(style='position: relative;')
 			#search_network
+			.card.white#node_card(style='position: absolute; top: 0px; left: 10px;')
+				.card-content.black-text
+					p#card_title
+					i#card_authors
 
 // visjs must be loaded before materialize to avoid conflicts
 block js
