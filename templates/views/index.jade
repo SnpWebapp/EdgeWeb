@@ -35,7 +35,8 @@ block content
 			//- Search bar
 			.row
 				.input-field.col.s2.m1
-					button.btn(type='submit', style='width: 30px'): i.material-icons search
+					button.btn.z-depth-0.card-panel.transparent(type='submit', style='width: 30px')
+						i.material-icons search
 				.input-field.col.s10.m11
 					input(name='search_query',
 						type='text',
@@ -71,7 +72,7 @@ block content
 		.container
 			#search_network
 
-// visjs must be loaded before materialize-css to avoid conflicts
+// visjs must be loaded before materialize to avoid conflicts
 block js
 	script(type='text/javascript').
 		var searchResults =!{JSON.stringify(searchResults)}
