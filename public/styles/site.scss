@@ -1,0 +1,12 @@
+@import "site/variables";
+
+// Materialize Css
+// ===============
+@import "../sass/materialize.scss";
+
+// Site Styles
+// ===========
+
+// Add your own site style includes here
+@import "site/layout";
+@import "site/index";

@@ -13,7 +13,7 @@ keystone.init({
 	'name': 'EdgeWeb',
 	'brand': 'EdgeWeb',
 
-	'less': 'public',
+	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
