@@ -14,3 +14,22 @@
     max-width: 100%;
     height: auto;
 }
+
+// -------------
+// Colour-themes
+
+body {
+	@extend .grey, .darken-4;
+}
+
+.nav-wrapper, .side-nav, .page-footer {
+	@extend .blue-grey, .darken-4;
+}
+
+nav li > a, footer li > a, footer p {
+	@extend .grey-text, .text-lighten-3;
+}
+
+footer h5 {
+	@extend .white-text;
+}

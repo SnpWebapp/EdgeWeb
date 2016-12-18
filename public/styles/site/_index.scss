@@ -6,10 +6,9 @@
 	border: 1px solid lightgray;
 }
 
-[type='number'] {
-	display: none;
-}
+//--------------
+// Colour themes
 
 .btn[type='submit'] {
-	color: black;
+	@extend .grey-text, .text-lighten-3;
 }
