@@ -25,3 +25,12 @@ Folders are organised as follows:
 		Routes the URLs to javascript middleware and views.
 	/templates
 		Jade scripts to generate the htmls
+
+TO DO:
+
+	Styling
+	1) /contact
+	2) /index
+		- search box
+		- advanced search form
+		- search_network (vis)
