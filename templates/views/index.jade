@@ -72,10 +72,14 @@ block content
 	if searchSubmitted
 		.container(style='position: relative;')
 			#search_network
-			.card.white#node_card(style='position: absolute; top: 0px; left: 10px;')
+			.card.white#node_card(style='position: absolute; top: 0px; left: 10px;', hidden=true)
 				.card-content.black-text
 					p#card_title
 					i#card_authors
+				.card-action
+					form#card_form(method='get', action='article')
+						input.hide#card_id(name='id', type='text')
+						input(type='submit', value='Go to article')
 
 // visjs must be loaded before materialize to avoid conflicts
 block js

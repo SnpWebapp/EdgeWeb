@@ -5,15 +5,22 @@
  *******************************************************************/
 
 /*******************************************************************
- * FUNCTION:	edgesearch
+ * FUNCTION:	edgeSearch
  * DESCRIPTION: Callback function on POST request of index page.
  * 				Creates graph for search results.
  * INPUTS:		data - Json object of search request.
  * RETURNS:		Json object with a "nodes" and "edges" field that
  *				describe the graph network of the search results.
+ *				nodes:	id      - key of the citation
+ *						label   - text of the node
+ *						title   - article title
+ *						authors - article author's
+ *						journal - name of journal
+ *				edges:	from - id of start node
+ *						to   - id of end node
  *******************************************************************/
 
-exports.edgesearch = function (data) {
+exports.edgeSearch = function (data) {
 
 	console.log(data);
 
@@ -35,4 +42,19 @@ exports.edgesearch = function (data) {
 	}
 
 	return net;
+}
+
+/*******************************************************************
+ * FUNCTION:	edgeGetArticle
+ * DESCRIPTION: Queries the database for the article for the given
+ *				id key. All entire article should be returned to
+ *				be rendered on the webpage.
+ * INPUTS:		id - id of the article.
+ * RETURNS:		Json object with full article information
+ *******************************************************************/
+
+exports.edgeGetArticle = function (id) {
+	console.log(id);
+	var article = {'id': id};
+	return article;
 }

@@ -1,9 +1,22 @@
+//------------------
+// Page specific css
+
+// Resize date label
 #date_label {
 	font-size: 1.0rem;
 }
 
+// Network container styling
 #search_network {
 	border: 1px solid lightgray;
+}
+
+// Article-card submit box styling
+#card_form input[type='submit'] {
+	background: none;
+	border: none;
+	font-size: 1em;
+	color: blue;
 }
 
 //--------------

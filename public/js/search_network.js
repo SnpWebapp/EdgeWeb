@@ -43,7 +43,11 @@ network.on('selectNode', function(){
 	var selected_node = searchResults.nodes.filter(function(obj){
 		return obj.id == network.getSelectedNodes()[0];
 	});
-	var card_title = document.getElementById('card_title');
-	card_title.innerHTML = selected_node[0].label;
+	var card_title   = document.getElementById('card_title');
+	var card_authors = document.getElementById('card_authors');
+	var card_link    = document.getElementById('card_link');
+	card_title.innerHTML   = selected_node[0].label;
+	card_authors.innerHTML = 'authors go here';
+	card_id.setAttribute('value', network.getSelectedNodes()[0]);
 })
 

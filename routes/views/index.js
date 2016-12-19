@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 	if (Object.keys(req.query).length !== 0)
 	{
 		locals.searchSubmitted = true;
-		locals.searchResults = edge.edgesearch(locals.formData);
+		locals.searchResults = edge.edgeSearch(locals.formData);
 	}
 
 	// Render the view
