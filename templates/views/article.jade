@@ -3,12 +3,26 @@ extends ../layouts/default
 block content
 	.container
 		.row
-			h3.white-text Article Title
 			.card.white
 				.card-content.black-text
-					span.card-title: i Authors
-					p Text goes here
+					span.card-title= article['title']
+					p
+						each value, index in article['authors']
+							if index == article['authors'].length - 1
+								i= value + '.'
+							else
+								i= value + ', '
+					hr
+					p= article['abstract']
 				.card-action
 					a(href='#') Citation 1
 					a(href='#') Citation 1
-
+		.row
+			form(method='put')
+				.input-field
+					textarea.form-control(name='message',
+						placeholder='Post a comment...',
+						rows=4,
+						style='resize: vertical; height: auto;')
+				.input-field
+					button.btn.wave-effect.waves-light(type='submit') Comment

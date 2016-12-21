@@ -1,23 +1,23 @@
-var keystone = require('keystone');
-var edge = require('../edge');
+var keystone = require('keystone')
+var edge = require('../edge')
 
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+	var view = new keystone.View(req, res)
+	var locals = res.locals
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'home';
-	locals.searchSubmitted = false;
-	locals.formData = req.query || {};
+	locals.section = 'home'
+	locals.searchSubmitted = false
+	locals.formData = req.query || {}
 
 	if (Object.keys(req.query).length !== 0)
 	{
-		locals.searchSubmitted = true;
-		locals.searchResults = edge.edgeSearch(locals.formData);
+		locals.searchSubmitted = true
+		locals.searchResults = edge.edgeSearch(locals.formData)
 	}
 
 	// Render the view
-	view.render('index');
+	view.render('index')
 };

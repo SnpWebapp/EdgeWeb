@@ -1,9 +1,9 @@
 // Creates the year slider object using noUiSlider
 
-var year_slider = document.getElementById('year_slider');
-var date_label  = document.getElementById('date_label');
-var yearstart   = document.getElementById('yearstart');
-var yearend     = document.getElementById('yearend');
+var year_slider = document.getElementById('year_slider')
+var date_label  = document.getElementById('date_label')
+var yearstart   = document.getElementById('yearstart')
+var yearend     = document.getElementById('yearend')
 
 // Create the slider object
 noUiSlider.create(year_slider, {
@@ -17,20 +17,20 @@ noUiSlider.create(year_slider, {
 	format: wNumb({
 		decimals: 0
 	})
-});
+})
 
 // Initialise default values
 if (yearstart.getAttribute('value') == null) {
-	yearstart.setAttribute('value', year_slider.noUiSlider.get()[0]);
-	yearend.setAttribute('value', year_slider.noUiSlider.get()[1]);
+	yearstart.setAttribute('value', year_slider.noUiSlider.get()[0])
+	yearend.setAttribute('value', year_slider.noUiSlider.get()[1])
 } else {
-	year_slider.noUiSlider.set([yearstart.getAttribute('value'), yearend.getAttribute('value')]);
+	year_slider.noUiSlider.set([yearstart.getAttribute('value'), yearend.getAttribute('value')])
 }
 
 // Update the label when the range values change
 year_slider.noUiSlider.on('update', function (values, handle) {
-	var year_range = year_slider.noUiSlider.get();
-	yearstart.setAttribute('value', year_range[0]);
-	yearend.setAttribute('value', year_range[1]);
-	date_label.innerHTML = 'Date: ' + year_range[0] + '-' + year_range[1];
+	var year_range = year_slider.noUiSlider.get()
+	yearstart.setAttribute('value', year_range[0])
+	yearend.setAttribute('value', year_range[1])
+	date_label.innerHTML = 'Date: ' + year_range[0] + '-' + year_range[1]
 })

@@ -22,26 +22,26 @@
 
 exports.edgeSearch = function (data) {
 
-	console.log(data);
+	console.log(data)
 
-	var net = {"nodes":[], "edges":[]};
+	var net = {"nodes":[], "edges":[]}
 
 	//----------------------
 	// Example graph network
 
 	// Define nodes
 	for (i = 0; i != 5; ++i) {
-		net["nodes"].push({"id": i, "label": data.search_query});
+		net["nodes"].push({"id": i, "label": data.search_query})
 	}
 
 	// Define edges
-	var edgestart = [0,0,1,1];
-	var edgeend = [2,1,3,4];
+	var edgestart = [0,0,1,1]
+	var edgeend = [2,1,3,4]
 	for (i = 0; i != 4; ++i) {
-		net["edges"].push({"from": edgestart[i], "to": edgeend[i]});
+		net["edges"].push({"from": edgestart[i], "to": edgeend[i]})
 	}
 
-	return net;
+	return net
 }
 
 /*******************************************************************
@@ -54,7 +54,12 @@ exports.edgeSearch = function (data) {
  *******************************************************************/
 
 exports.edgeGetArticle = function (id) {
-	console.log(id);
-	var article = {'id': id};
-	return article;
+	console.log(id)
+	var article = {
+		'id':       id,
+		'title':    'Test Article 1',
+		'authors':  ['A. B. Cider', 'D. Elder'],
+		'abstract': 'This is an example of what an article abstract would be like',
+	}
+	return article
 }
