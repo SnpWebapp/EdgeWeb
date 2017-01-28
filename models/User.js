@@ -8,9 +8,10 @@ var Types = keystone.Field.Types;
 var User = new keystone.List('User');
 
 User.add({
+	oauthID: { type: Number, initial: true, required: true, index: true, hidden: true },
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
-	password: { type: Types.Password, initial: true, required: true },
+	password: { type: Types.Password, initial: true, required: true, hidden: true },
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 });

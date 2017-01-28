@@ -4,10 +4,8 @@ require('dotenv').config();
 
 // Require keystone
 var keystone = require('keystone'),
-	passport = require('passport'),
-	config = require('./oauth.js'),
-	GoogleStrategy = require('passport-google-oauth2').Strategy
-
+	passport = require('passport')
+	
 // Configure passport for authentication
 passport.serializeUser(function(user, done) {
 	done(null, user)
@@ -15,17 +13,6 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done){
 	done(null, obj)
 })
-passport.use(new GoogleStrategy({
-	clientID: config.google.clientID,
-	clientSecret: config.google.clientSecret,
-	callbackURL: config.google.callbackURL
-	},
-	function(accessToken, refreshToken, profile, done){
-		process.nextTick(function(){
-			return done(null,profile)
-		})
-	}
-))
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -52,6 +39,9 @@ keystone.init({
 
 // Load your project's Models
 keystone.import('models');
+
+// Load authentication functions
+require('./authentication.js')
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely

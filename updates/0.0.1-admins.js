@@ -9,7 +9,7 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'revisit.webapp.test@gmail.com', 'password': 'admin', 'isAdmin': true },
+		{ 'oauthID': 0000000001, 'name.first': 'Admin', 'name.last': 'User', 'email': 'revisit.webapp.test@gmail.com', 'password': 'admin', 'isAdmin': true },
 	],
 };
 
