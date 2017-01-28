@@ -21,10 +21,13 @@
 var keystone = require('keystone')
 var middleware = require('./middleware')
 var importRoutes = keystone.importer(__dirname)
+var passport = require('passport')
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals)
 keystone.pre('render', middleware.flashMessages)
+keystone.pre('routes', passport.initialize())
+keystone.pre('routes', passport.session())
 
 // Import Route Controllers
 var routes = {
@@ -38,6 +41,14 @@ exports = module.exports = function (app) {
 	app.all('/contact', routes.views.contact)
 	app.get('/article', routes.views.article)
 
+    app.all('/login', routes.views.login)
+    app.get('/auth/google', passport.authenticate('google',{scope: ['profile', 'email']}), function(req,res){})
+    app.get('/auth/google/callback',
+    	passport.authenticate('google', {failureRedirect: '/login'}),
+    	function(req, res){
+    		res.redirect('/')
+    	});
+    	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
