@@ -7,7 +7,7 @@
     "dotenv": "^2.0.0",
     "keystone": "^0.3.19",
     "lodash": "^4.13.1",
-    "node-sass-middleware": "^0.10.0"
+    "node-sass-middleware": "^0.10.1"
   },
   "devDependencies": {
     "eslint": "^2.12.0",

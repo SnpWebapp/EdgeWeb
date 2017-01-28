@@ -2,20 +2,17 @@ extends ../layouts/default
 
 block content
 	.container
-		if enquirySubmitted
-			h3 Thanks for getting in touch.
-		else
-			.rows
-				.card.white
-					.card-content.black-text
-						form(action='/signin', method='post')
-							.form-group(class=validationErrors.username ? 'has-error' : null)
-								label Username
-								input(type='text', name='username', value=formData.username).form-control
-							.form-group
-								label Password
-								input(type='password', name='password', value=formData.password).form-control
-							.form-actions
-								button(type='submit').btn.btn-primary Sign in
-						a(href='/auth/google') Google
+		.rows
+			.card.white
+				.card-content.black-text
+					form(action='/login', method='post')
+						.form-group(class=validationErrors.username ? 'has-error' : null)
+							label Email Address
+							input(type='email', name='email', id='email', value=formData.email).form-control
+						.form-group
+							label Password
+							input(type='password', name='password', id='email').form-control
+						.form-actions
+							button(type='submit').btn.btn-primary Sign in
+					a(href='/auth/google') Google
 

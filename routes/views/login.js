@@ -16,13 +16,14 @@ exports = module.exports = function (req, res) {
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', function (next) {
 
-        user = keystone.list('User')
+		res.redirect(307, '/keystone/signin')
+ /*       user = keystone.list('User')
         user.model.find()
             .where('name.last', locals.formData.username)
             .exec(function(err,users){
                 console.log(users)
             })
-		next()
+		next()*/
 	})
 	
 	// Render the view

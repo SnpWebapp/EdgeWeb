@@ -3,7 +3,20 @@ var keystone = require('keystone'),
 	config = require('./oauth.js'),
 	User = keystone.list('User'),
 	GoogleStrategy = require('passport-google-oauth2').Strategy
-	
+
+// Serialize authenticated user
+module.exports = passport.serializeUser(function(user, done) {
+	done(null, user._id)
+})
+
+// Deserialize authenticated user
+module.exports = passport.deserializeUser(function(id, done){
+	User.model.findById(id, function(err, user){
+		if (!err) done(null, user)
+		else done(err, null)
+	})
+})
+
 // Google oauth 2.0
 module.exports = passport.use(new GoogleStrategy({
 	clientID: config.google.clientID,

@@ -3,16 +3,7 @@
 require('dotenv').config();
 
 // Require keystone
-var keystone = require('keystone'),
-	passport = require('passport')
-	
-// Configure passport for authentication
-passport.serializeUser(function(user, done) {
-	done(null, user)
-})
-passport.deserializeUser(function(obj, done){
-	done(null, obj)
-})
+var keystone = require('keystone')
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
