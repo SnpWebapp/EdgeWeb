@@ -11,7 +11,7 @@ block content
 							input(type='email', name='email', id='email', value=formData.email).form-control
 						.form-group
 							label Password
-							input(type='password', name='password', id='password').form-control
+							input(type='password', name='password', id='email').form-control
 						.form-actions
 							button(type='submit').btn.btn-primary Sign in
 					a(href='/auth/google') Google

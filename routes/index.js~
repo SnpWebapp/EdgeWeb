@@ -44,7 +44,7 @@ exports = module.exports = function (app) {
 	app.get('/article', routes.views.article)
 
     app.get('/login', routes.views.login)
-    app.post('/login', middleware.auth.local, middleware.redirectHome)
+//    app.post('/login', passport.authenticate('local'))
     app.get('/auth/google', middleware.auth.google, function(req,res){})
     app.get('/auth/google/callback', middleware.auth.googlecb, middleware.redirectHome);
     	
