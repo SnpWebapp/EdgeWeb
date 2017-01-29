@@ -18,7 +18,7 @@ block content
 					a(href='#') Citation 1
 					a(href='#') Citation 1
 		.row
-			form(method='post')
+			form(method='put')
 				.input-field
 					input.hide(name='id', type='text', value=formData['id'])
 				.input-field

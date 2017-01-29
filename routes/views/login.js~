@@ -12,7 +12,7 @@ exports = module.exports = function (req, res) {
 	locals.signinSubmitted = false
 	locals.formData = req.body || {}
 	locals.validationErrors = {}
-	locals.user = req.user || {}
+	locals.user = req.user
 
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', function (next) {

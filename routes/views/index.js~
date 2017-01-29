@@ -13,6 +13,8 @@ exports = module.exports = function (req, res) {
 	locals.formData = req.query || {}
 	locals.user = req.user || {}
 
+	console.log(locals.user)
+
 	if (Object.keys(req.query).length !== 0)
 	{
 		locals.searchSubmitted = true

@@ -10,7 +10,6 @@
 var _ = require('lodash'),
 	passport = require('passport')
 
-
 /**
 	Initialises the standard view locals
 
@@ -22,7 +21,6 @@ exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Contact', key: 'contact', href: '/contact' },
-		{ label: 'Login', key: 'login', href: '/login' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -69,4 +67,12 @@ module.exports.auth = auth
 /**
 	Redirect functions
 */
-exports.redirectHome = function(req, res){res.redirect('/')}
+exports.redirectHome = function(req, res){res.redirect('/#')}
+
+/**
+	Session logout function
+*/
+exports.logout = function(req, res){
+	req.logout()
+	res.redirect('/')
+}

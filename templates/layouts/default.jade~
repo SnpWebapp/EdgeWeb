@@ -55,14 +55,14 @@ html
 					ul.right.hide-on-med-and-down
 						each link in navLinks
 							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-						if user._id
+						if user
 							li: a(href='/logout') Sign Out
 						else
 							li: a(href='/login') Sign In
 					ul#mobile-demo.side-nav
 						each link in navLinks
 							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-						if user._id
+						if user
 							li: a(href='/logout') Sign Out
 						else
 							li: a(href='/login') Sign In

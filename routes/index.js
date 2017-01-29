@@ -41,12 +41,13 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index)
 	app.all('/contact', routes.views.contact)
-	app.get('/article', routes.views.article)
+	app.all('/article', routes.views.article)
 
     app.get('/login', routes.views.login)
     app.post('/login', middleware.auth.local, middleware.redirectHome)
     app.get('/auth/google', middleware.auth.google, function(req,res){})
     app.get('/auth/google/callback', middleware.auth.googlecb, middleware.redirectHome);
+	app.get('/logout', middleware.logout)
     	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

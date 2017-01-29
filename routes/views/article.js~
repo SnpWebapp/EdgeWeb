@@ -12,8 +12,6 @@ exports = module.exports = function (req, res) {
 
 	locals.formData = req.query || {}
 
-	console.log(locals.formData)
-
 	// Get article details from database
 	locals.article = locals.formData.hasOwnProperty('id') ?
 		edge.edgeGetArticle(locals.formData.id) : {}

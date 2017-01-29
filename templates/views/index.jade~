@@ -84,6 +84,7 @@ block content
 // visjs must be loaded before materialize to avoid conflicts
 block js
 	script(type='text/javascript').
+		document.location.href = "#"
 		var searchResults =!{JSON.stringify(searchResults)}
 		$(document).ready(function() {
 			$('.slider').slider({full_width: true, interval: 4000})

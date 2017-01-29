@@ -22,7 +22,6 @@ exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Contact', key: 'contact', href: '/contact' },
-		{ label: 'Login', key: 'login', href: '/login' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -60,7 +59,7 @@ exports.requireUser = function (req, res, next) {
     Authentication functions
 */
 var auth = {
-	local: passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'),
+	local: passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}),
 	google: passport.authenticate('google', {scope: ['profile', 'email']}),
 	googlecb: passport.authenticate('google', {failureRedirect: '/login'})
 }
@@ -69,4 +68,12 @@ module.exports.auth = auth
 /**
 	Redirect functions
 */
-exports.redirectHome = function(req, res){res.redirect('/')}
+exports.redirectHome = function(req, res){res.redirect('/#')}
+
+/**
+	Session logout function
+*/
+exports.logout = function(req, res){
+	req.logout()
+	res.redirect('/')
+}
