@@ -1,5 +1,16 @@
+/**********************************************************F********
+ * FILE NAME:	contact.js
+ * DESCRIPTION:	Javascript to render the "contact" html page.
+ *******************************************************************/
+
 var keystone = require('keystone')
 var Enquiry = keystone.list('Enquiry')
+
+/*******************************************************************
+ * FUNCTION:	N/A
+ * DESCRIPTION: Callback function on all requests of "contact" page.
+ * 				Adds an enquiry item to the database.
+ *******************************************************************/
 
 exports = module.exports = function (req, res) {
 
@@ -13,6 +24,7 @@ exports = module.exports = function (req, res) {
 	locals.validationErrors = {}
 	locals.enquirySubmitted = false
 	locals.user = req.user || {}
+	res.user = locals.user
 
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', { action: 'contact' }, function (next) {

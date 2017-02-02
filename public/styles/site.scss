@@ -10,3 +10,11 @@
 // Add your own site style includes here
 @import "site/layout";
 @import "site/index";
+@import "site/article";
+
+// flash message styles
+#flash-messages {
+	color: white;
+	text-align: center;
+}
+

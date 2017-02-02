@@ -20,12 +20,7 @@ block content
 		.row
 			form(method='post')
 				.input-field
-					input.hide(name='id', type='text', value=formData['id'])
-				.input-field
-					textarea.form-control(type='textarea', name='message',
-						placeholder='Post a comment...',
-						rows=4,
-						style='resize: vertical; height: auto;')
+					textarea.form-control(name='comment', placeholder='Post a comment...', rows=4)
 				.input-field
 					button.btn.wave-effect.waves-light(type='submit') Comment
 

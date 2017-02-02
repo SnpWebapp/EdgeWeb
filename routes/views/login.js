@@ -1,6 +1,17 @@
-var keystone = require('keystone'),
+/**********************************************************F********
+ * FILE NAME:	login.js
+ * DESCRIPTION:	Javascript to render the "login" html page.
+ *******************************************************************/
 
-//
+var keystone = require('keystone')
+
+/*******************************************************************
+ * FUNCTION:	N/A
+ * DESCRIPTION: Callback function on GET requests of "login" page.
+ * 				Signs in the user and creates a new user entry in
+ *				the database if it does not yet exist.
+ *******************************************************************/
+
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res)
@@ -13,20 +24,8 @@ exports = module.exports = function (req, res) {
 	locals.formData = req.body || {}
 	locals.validationErrors = {}
 	locals.user = req.user || {}
+	res.user = locals.user
 
-	// On POST requests, add the Enquiry item to the database
-	view.on('post', function (next) {
-
-		res.redirect(307, '/keystone/signin')
- /*       user = keystone.list('User')
-        user.model.find()
-            .where('name.last', locals.formData.username)
-            .exec(function(err,users){
-                console.log(users)
-            })
-		next()*/
-	})
-	
 	// Render the view
 	view.render('login')
 };

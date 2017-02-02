@@ -1,5 +1,17 @@
-var keystone = require('keystone')
-var edge = require('../edge')
+/**********************************************************F********
+ * FILE NAME:	index.js
+ * DESCRIPTION:	Javascript to render the index html page.
+ *******************************************************************/
+
+var keystone = require('keystone'),
+	edge = require('../edge')
+
+/*******************************************************************
+ * FUNCTION:	N/A
+ * DESCRIPTION: Callback function on all requests of home page.
+ * 				Searches for the network relating to the search
+ *				query.
+ *******************************************************************/
 
 exports = module.exports = function (req, res) {
 
@@ -12,6 +24,7 @@ exports = module.exports = function (req, res) {
 	locals.searchSubmitted = false
 	locals.formData = req.query || {}
 	locals.user = req.user || {}
+	res.user = locals.user
 
 	if (Object.keys(req.query).length !== 0)
 	{

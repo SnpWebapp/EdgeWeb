@@ -6446,3 +6446,11 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   border: none;
   font-size: 1em;
   color: blue; }
+
+textarea {
+  resize: vertical;
+  height: auto; }
+
+#flash-messages {
+  color: white;
+  text-align: center; }

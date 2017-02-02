@@ -54,7 +54,6 @@ exports.edgeSearch = function (data) {
  *******************************************************************/
 
 exports.edgeGetArticle = function (id) {
-	console.log(id)
 	var article = {
 		'id':       id,
 		'title':    'Test Article 1',
